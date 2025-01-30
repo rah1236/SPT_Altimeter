@@ -1,0 +1,4 @@
+../Core/Src/servo.c:15:6:MX_TIM2_Init	4
+../Core/Src/servo.c:64:6:MX_TIM3_Init	4
+../Core/Src/servo.c:108:6:init_servo	1
+../Core/Src/servo.c:116:6:servo_set_angle	1

@@ -1,0 +1,8 @@
+../Core/Src/shell.c:30:12:ush_read	2
+../Core/Src/shell.c:39:12:ush_write	2
+../Core/Src/shell.c:54:13:cmd_led_callback	4
+../Core/Src/shell.c:94:6:shell_init	1
+../Core/Src/shell.c:113:6:shell_print	2
+../Core/Src/shell.c:120:6:shell_printf	2
+../Core/Src/shell.c:130:6:lora_monitor_service	10
+../Core/Src/shell.c:182:6:shell_service	1

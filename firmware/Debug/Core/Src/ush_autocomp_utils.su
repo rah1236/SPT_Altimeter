@@ -1,0 +1,7 @@
+../Core/Src/ush_autocomp_utils.c:34:6:ush_autocomp_start	16	static
+../Core/Src/ush_autocomp_utils.c:41:6:ush_autocomp_prepare_candidates	16	static
+../Core/Src/ush_autocomp_utils.c:50:6:ush_autocomp_optimize_continue	24	static
+../Core/Src/ush_autocomp_utils.c:70:6:ush_autocomp_check_for_finish	48	dynamic
+../Core/Src/ush_autocomp_utils.c:101:6:ush_autocomp_check_for_next	24	static
+../Core/Src/ush_autocomp_utils.c:126:6:ush_autocomp_process_file_index	16	static
+../Core/Src/ush_autocomp_utils.c:168:6:ush_autocomp_process_file_prepare	24	static

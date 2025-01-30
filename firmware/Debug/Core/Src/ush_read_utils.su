@@ -1,0 +1,3 @@
+../Core/Src/ush_read_utils.c:27:6:ush_read_echo_service	24	static
+../Core/Src/ush_read_utils.c:52:6:ush_read_char_by_escape_state	24	static
+../Core/Src/ush_read_utils.c:86:6:ush_read_start	16	static

@@ -1,0 +1,8 @@
+../Core/Src/shell.c:30:12:ush_read	16	static
+../Core/Src/shell.c:39:12:ush_write	16	static
+../Core/Src/shell.c:54:13:cmd_led_callback	24	static
+../Core/Src/shell.c:94:6:shell_init	16	static
+../Core/Src/shell.c:113:6:shell_print	16	static
+../Core/Src/shell.c:120:6:shell_printf	16	static
+../Core/Src/shell.c:130:6:lora_monitor_service	432	static
+../Core/Src/shell.c:182:6:shell_service	8	static

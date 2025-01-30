@@ -1,0 +1,2 @@
+../Core/Src/ush_node_utils.c:30:25:ush_node_get_parent_by_path	56	dynamic
+../Core/Src/ush_node_utils.c:46:14:ush_node_set_current_dir	56	dynamic

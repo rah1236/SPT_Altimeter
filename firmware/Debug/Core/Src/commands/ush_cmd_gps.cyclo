@@ -1,0 +1,8 @@
+../Core/Src/commands/ush_cmd_gps.c:13:13:cmd_gps_init_callback	5
+../Core/Src/commands/ush_cmd_gps.c:41:13:cmd_gps_status_callback	4
+../Core/Src/commands/ush_cmd_gps.c:90:13:cmd_gps_sleep_callback	3
+../Core/Src/commands/ush_cmd_gps.c:103:13:cmd_gps_wake_callback	3
+../Core/Src/commands/ush_cmd_gps.c:116:13:cmd_gps_monitor_callback	5
+../Core/Src/commands/ush_cmd_gps.c:139:6:gps_monitor_service	3
+../Core/Src/commands/ush_cmd_gps.c:145:13:cmd_gps_raw_callback	2
+../Core/Src/commands/ush_cmd_gps.c:229:6:cmd_gps_init	1

@@ -1,0 +1,8 @@
+../Core/Src/ush.c:33:6:ush_init	24	static
+../Core/Src/ush.c:62:6:ush_deinit	16	static
+../Core/Src/ush.c:70:6:ush_service	24	static
+../Core/Src/ush.c:97:6:ush_print_status	24	static
+../Core/Src/ush.c:106:6:ush_print	16	static
+../Core/Src/ush.c:114:6:ush_printf	108	static
+../Core/Src/ush.c:173:6:ush_print_no_newline	16	static
+../Core/Src/ush.c:181:6:ush_flush	16	static

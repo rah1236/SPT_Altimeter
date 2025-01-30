@@ -1,0 +1,7 @@
+../Core/Src/bmp280.c:37:13:BMP280_WriteReg	1
+../Core/Src/bmp280.c:44:16:BMP280_ReadReg	2
+../Core/Src/bmp280.c:72:13:BMP280_ReadRegs	1
+../Core/Src/bmp280.c:80:6:BMP280_Init	2
+../Core/Src/bmp280.c:114:7:BMP280_ReadTemperature	1
+../Core/Src/bmp280.c:132:7:BMP280_ReadPressure	2
+../Core/Src/bmp280.c:159:7:BMP280_ReadAltitude	1

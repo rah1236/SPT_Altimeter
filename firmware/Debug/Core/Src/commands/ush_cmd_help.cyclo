@@ -1,0 +1,2 @@
+../Core/Src/commands/ush_cmd_help.c:34:6:ush_buildin_cmd_help_callback	5
+../Core/Src/commands/ush_cmd_help.c:64:6:ush_buildin_cmd_help_service	10

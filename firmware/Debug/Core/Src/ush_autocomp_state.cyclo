@@ -1,0 +1,5 @@
+../Core/Src/ush_autocomp_state.c:34:6:ush_autocomp_state_recall_suffix	2
+../Core/Src/ush_autocomp_state.c:45:6:ush_autocomp_state_prepare	1
+../Core/Src/ush_autocomp_state.c:51:6:ush_autocomp_state_candidates_start	1
+../Core/Src/ush_autocomp_state.c:59:6:ush_autocomp_state_candidates_process	4
+../Core/Src/ush_autocomp_state.c:77:6:ush_autocomp_state_candidates_finish	8

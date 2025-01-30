@@ -1,0 +1,3 @@
+../Core/Src/ush_reset.c:31:6:ush_reset_start	1
+../Core/Src/ush_reset.c:38:6:ush_reset	1
+../Core/Src/ush_reset.c:46:6:ush_reset_service	3
