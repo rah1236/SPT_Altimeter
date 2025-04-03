@@ -84,7 +84,7 @@ static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN 0 */
 rfm95_config_t LoRa_config = {
     .frequency = 868000000,  // 868 MHz
-    .power = 17,            // 17 dBm
+    .power = 20,            // 17 dBm
     .lna_gain = 0x01,      // Max LNA gain
     .bandwidth = 7,        // 125 kHz
     .coding_rate = 1,      // 4/5
@@ -143,6 +143,8 @@ int main(void)
 //  sam_m8q_init_uart(&huart1);
   /* USER CODE END 2 */
 
+  uint32_t last_tx = 0;
+  float sea_level = 1013.25f;
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -150,7 +152,21 @@ int main(void)
   {
     /* USER CODE END WHILE */
       shell_service();
-
+//	uint32_t now = HAL_GetTick();
+//
+//	if (now - last_tx >= 500) {
+//		float pressure = BMP280_ReadPressure();
+//		float altitude = BMP280_ReadAltitude(sea_level);
+//
+//		uint8_t data[8];
+//		memcpy(&data[0], &pressure, sizeof(float));
+//		memcpy(&data[4], &altitude, sizeof(float));
+//
+//		rfm95_send(data, 8);
+//		last_tx = now;
+//	}
+//
+//	HAL_Delay(100);
 //      rfm95_send((uint8_t*)"thisisatest", 11);
     /* USER CODE BEGIN 3 */
   }

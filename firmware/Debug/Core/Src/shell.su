@@ -4,5 +4,5 @@
 ../Core/Src/shell.c:94:6:shell_init	16	static
 ../Core/Src/shell.c:113:6:shell_print	16	static
 ../Core/Src/shell.c:120:6:shell_printf	16	static
-../Core/Src/shell.c:130:6:lora_monitor_service	432	static
-../Core/Src/shell.c:182:6:shell_service	8	static
+../Core/Src/shell.c:130:6:lora_monitor_service	448	static
+../Core/Src/shell.c:191:6:shell_service	8	static

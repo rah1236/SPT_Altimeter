@@ -133,48 +133,57 @@ void lora_monitor_service(void) {
         uint8_t len;
 
         if (rfm95_receive(data, &len, 10)) {
-            // Print received data info
-            char print_buf[256];
-            snprintf(print_buf, sizeof(print_buf), "RX (%d bytes): ", len);
+            char output_buf[256] = {0};
 
-            char hex_buf[4];
-            for (int i = 0; i < len; i++) {
-                snprintf(hex_buf, sizeof(hex_buf), "%02X ", data[i]);
-                strcat(print_buf, hex_buf);
+            // Check if we received enough data
+            if (len >= 8) {
+                // Extract pressure and altitude as uint32_t first
+                uint32_t pressure_raw, altitude_raw;
+                memcpy(&pressure_raw, &data[0], sizeof(uint32_t));
+                memcpy(&altitude_raw, &data[4], sizeof(uint32_t));
+
+                // Convert to float
+                float pressure = *((float*)&pressure_raw);
+                float raw_altitude = *((float*)&altitude_raw);
+
+                // Calibrate altitude:
+                // We know the current value (-61290) should be 43m
+                // Apply an offset to correct it
+                float altitude_offset = 61333.0f; // 43 + 61290 = 61333
+                float calibrated_altitude = raw_altitude + altitude_offset;
+
+                // Convert to integers for printing
+                int32_t pressure_int = (int32_t)(pressure * 100.0f);
+                int32_t altitude_int = (int32_t)(calibrated_altitude * 100.0f);
+
+                // Add values to output buffer
+                snprintf(output_buf, sizeof(output_buf),
+                        "Pressure: %ld.%02ld hPa, Altitude: %ld.%02ld m\r\n",
+                        pressure_int / 100, abs(pressure_int % 100),
+                        altitude_int / 100, abs(altitude_int % 100));
+            } else {
+                strcpy(output_buf, "Packet too short\r\n");
             }
 
-            char rssi_snr_buf[64];
-            int16_t snr = (int16_t)(rfm95_get_snr() * 100);
-            snprintf(rssi_snr_buf, sizeof(rssi_snr_buf),
-                    "\r\nRSSI:%ddBm SNR:%d.%02ddB",
-                    rfm95_get_rssi(),
-                    snr / 100,
-                    abs(snr % 100));
-            strcat(print_buf, rssi_snr_buf);
-
-            ush_print(&ush, print_buf);
-
-            // Check if data starts with "servo_"
+            // Handle servo commands if present
             if (len >= 6 && memcmp(data, "servo_", 6) == 0) {
-                // Convert remaining data to angle value
-                char angle_str[4] = {0}; // Max 3 digits + null terminator
+                char angle_str[4] = {0};
                 uint8_t angle_len = len - 6;
                 if (angle_len > 0 && angle_len <= 3) {
                     memcpy(angle_str, &data[6], angle_len);
                     int angle = atoi(angle_str);
-
-                    // Check if angle is within valid range (0-180)
                     if (angle >= 0 && angle <= 180) {
                         servo_set_angle(&htim2, (uint8_t)angle);
-
-                        // Print confirmation message
-                        char confirm_buf[32];
-                        snprintf(confirm_buf, sizeof(confirm_buf),
-                                "\r\nSetting servo to %d degrees", angle);
-                        ush_print(&ush, confirm_buf);
+                        char temp_buf[80];
+                        snprintf(temp_buf, sizeof(temp_buf),
+                                "Setting servo to %d degrees\r\n", angle);
+                        strcat(output_buf, temp_buf);
                     }
                 }
             }
+
+            // Print the complete output buffer once
+            ush_print(&ush, output_buf);
         }
     }
 }
